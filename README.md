@@ -6,5 +6,6 @@ Tarefas:
 - Documento de requisitos - Yuri
 - Diagrama de casos de uso - Radmila 
 - Diagrama de classes - Radmila
+- Diagrama de sequência - Radmila
 
 *O nome do projeto ainda está em discussão, provavelmente o nome do repositório irá mudar.
