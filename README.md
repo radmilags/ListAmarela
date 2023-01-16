@@ -1,5 +1,5 @@
 # ListAmarela
-Site de procura e oferecimento de serviços gerais. Aplicação é baseada na lista telefônica amarela, famosa nos anos 90.
+Site de procura e oferecimento de serviços gerais. Aplicação é baseada na lista telefônica amarela, popular nos anos 90.
 
 Documentação:
 - ~~Documento de visão-Yuri~~
