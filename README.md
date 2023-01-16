@@ -4,7 +4,7 @@ Site de procura e oferecimento de serviços gerais. Aplicação é baseada na li
 Tarefas:
 - ~~Documento de visão-Yuri~~
 - ~~Documento de requisitos - Yuri~~
-- ~~Diagrama de casos de uso - Radmila ~~
+- ~~Diagrama de casos de uso - Radmila~~
 - ~~Diagrama de classes - Radmila~~
 
 *O nome do projeto ainda está em discussão, provavelmente o nome do repositório irá mudar.
