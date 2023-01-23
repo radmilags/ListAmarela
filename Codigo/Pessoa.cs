@@ -20,7 +20,7 @@ class Pessoa{
     if(email != "") this.email = email;
     if(sexo != "") this.sexo = sexo;
     if(endereco != "") this.endereco = endereco;
-    if(bariro != "") this.bairro = bairro;
+    if(bairro != "") this.bairro = bairro;
     if(cidade!="") this.cidade = cidade;
     if(telefone!="") this.telefone = telefone;
     if(senha!="") this.senha = senha;
