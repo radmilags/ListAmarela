@@ -1,54 +1,11 @@
 using System;
 
-using System;
-class Pessoa{
-  private string nome;
-  private string sobrenome; 
-  private DateTime dataNascimento; 
-  private string cpf;
-  private string email;
-  private string sexo;
-  private string endereco;
-  private string bairro;
-  private string cidade;
-  private string telefone; 
-  private string senha;
-  public Pessoa(int id, string nome, string sobrenome, DateTime dataNascimento, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, string senha){
-    if(nome != "") this.nome = nome;
-    if(sobrenome != "") this.sobrenome = sobrenome;
-    this.dataNascimento = dataNascimento;
-    if(cpf != "") this.cpf = cpf;
-    if(email != "") this.email = email;
-    if(sexo != "") this.sexo = sexo;
-    if(endereco != "") this.endereco = endereco;
-    if(bairro != "") this.bairro = bairro;
-    if(cidade!="") this.cidade = cidade;
-    if(telefone!="") this.telefone = telefone;
-    if(senha!="") this.senha = senha;
-  }
-  public string GetNome(){return this.nome;}
-  public string GetSobrenome(){return this.sobrenome;}
-  public DateTime GetdataNascimento(){return this.dataNascimento;}
-  public string Getcpf(){return this.cpf;}
-  public string Getemail(){return this.email;}
-  public string Getsexo(){return this.sexo;}
-  public string Getendereco(){return this.endereco;}
-  public string Getbairro(){return this.bairro;}
-  public string Getcidade(){return this.cidade;}
-  public string Gettelefone(){return this.telefone;}
-  public string Getsenha(){return this.senha;}
-
-  //ToString
-
-  public override string ToString(){return $"{this.nome} {this.sobrenome} - {this.telefone}";}
-}
-
-class Prestador{
-    
-}
-
 class Program {
   public static void Main() {
+      
+    //Lista de categorias
+    int idc = 0; idc++;
+    
     Console.WriteLine("");
     Console.WriteLine("ListAmarela");
     Console.WriteLine("");
@@ -58,11 +15,12 @@ class Program {
     int op = 0;
     while (op == 0) {
       Console.WriteLine("Escolha uma opção:");
+      Console.WriteLine("[0] Sair");
       Console.WriteLine("[1] Visitar sistema");
       Console.WriteLine("[2] Login");
       Console.WriteLine("[3] Cadastrar cliente");
       Console.WriteLine("[4] Cadastrar prestador");
-      Console.WriteLine("[5] Cadastrar categoria");
+      if (c[2] == "") Console.WriteLine("[5] Cadastrar categoria");
       
       //ADICIONAR AS OUTRAS OPÇÕES (MUDAR DADOS, ACESSAR DADOS)
       //ONDE QUE FICA A PARTE DE SOLICITAR SERVICO? TEM QUE VER ISSO AI
@@ -77,6 +35,7 @@ class Program {
       //MOSTRAR AS CATEGORIAS E DADOS DE CONTATO
       case 2: Console.WriteLine("[mostrando área de login]"); break;
       case 3: {
+        id++;
         Console.WriteLine("");
         Console.WriteLine("CADASTRO");
         Console.WriteLine("");
@@ -88,7 +47,7 @@ class Program {
         string sobrenome = Console.ReadLine();
         
         Console.Write("Data de nascimento:");
-        DateTime dataNascimento = DateTime.Parse(Console.ReadLine()); // yyyy-MM-dd
+        DateTime dataNascimento = DateTime.Parse(Console.ReadLine()); // dd/mm/yyyy
         
         Console.Write("CPF:");
         string cpf = Console.ReadLine();
@@ -114,10 +73,10 @@ class Program {
         Console.Write("Informe uma senha:");
         string senha = Console.ReadLine();
         
-        Pessoa p = new Pessoa(id, nome, sobrenome, dataNascimento, cpf, email, sexo, endereço, bairro, cidade, telefone, senha);
-        id++;
+        Cliente c = new Cliente(id, nome, sobrenome, dataNascimento, cpf, email, sexo, endereço, bairro, cidade, telefone, senha);
         break;
       }
+    
       default: Console.WriteLine("Opção inválida"); break;
       }
     }
