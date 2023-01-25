@@ -43,6 +43,10 @@ class Pessoa{
   public override string ToString(){return $"{this.nome} {this.sobrenome} - {this.telefone}";}
 }
 
+class Prestador{
+    
+}
+
 class Program {
   public static void Main() {
     Console.WriteLine("");
@@ -62,6 +66,7 @@ class Program {
       
       //ADICIONAR AS OUTRAS OPÇÕES (MUDAR DADOS, ACESSAR DADOS)
       //ONDE QUE FICA A PARTE DE SOLICITAR SERVICO? TEM QUE VER ISSO AI
+      
       
       Console.WriteLine("");
       op = int.Parse(Console.ReadLine());
