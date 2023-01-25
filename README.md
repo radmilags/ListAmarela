@@ -12,5 +12,6 @@ Codificação:
 - Implementação das classes serviço
 - Menu do main
 - Icomparable
+- Conceitos de herança
 
 Interface: Será desenvolvida somentes quando o projeto ListAmarela for exibido no PDS, no terceiro semestre.
