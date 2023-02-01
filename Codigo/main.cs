@@ -1,139 +1,61 @@
 using System;
 
-public class Pessoa
-{
-    private int id;
-    private string nome;
-    private string sobrenome;
-    private DateTime dataNascimento;
-    private string cpf;
-    private string email;
-    private string sexo;
-    private string endereco;
-    private string bairro;
-    private string cidade;
-    private string telefone;
-    private string senha;
-    public Pessoa(int id, string nome, string sobrenome, DateTime dataNascimento, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, string senha)
-    {
-        this.id = id;
-        if (nome != "") this.nome = nome;
-        if (sobrenome != "") this.sobrenome = sobrenome;
-        this.dataNascimento = dataNascimento;
-        if (cpf != "") this.cpf = cpf;
-        if (email != "") this.email = email;
-        if (sexo != "") this.sexo = sexo;
-        if (endereco != "") this.endereco = endereco;
-        if (bairro != "") this.bairro = bairro;
-        if (cidade != "") this.cidade = cidade;
-        if (telefone != "") this.telefone = telefone;
-        if (senha != "") this.senha = senha;
-    }
-    public string GetNome() { return this.nome; }
-    public string GetSobrenome() { return this.sobrenome; }
-    public DateTime GetdataNascimento() { return this.dataNascimento; }
-    public string Getcpf() { return this.cpf; }
-    public string Getemail() { return this.email; }
-    public string Getsexo() { return this.sexo; }
-    public string Getendereco() { return this.endereco; }
-    public string Getbairro() { return this.bairro; }
-    public string Getcidade() { return this.cidade; }
-    public string Gettelefone() { return this.telefone; }
-    public string Getsenha() { return this.senha; }
-
-    //ToString
-
-    public override string ToString() { return $"{this.nome} {this.sobrenome} - {this.telefone}"; }
-}
-
-class Cliente : Pessoa
-{
-
-}
-
 class Program
 {
-    public static void Main()
+  public static void Main()
+  {
+    int idcliente = 0; int idcategor = 0; int idprestador = 0;
+    Console.WriteLine("");
+    Console.WriteLine("ListAmarela");
+    Console.WriteLine("");
+    Cliente[] c = new Cliente[3];
+    Categoria[] categor = new Categoria[4];
+    int op = -1;
+    while (op != 0)
     {
-
-        //Lista de categorias
-        int idc = 0; idc++;
-
-        Console.WriteLine("");
-        Console.WriteLine("ListAmarela");
-        Console.WriteLine("");
-
-
-
-        int op = 0;
-        while (op == 0)
-        {
-            Console.WriteLine("Escolha uma opção:");
-            Console.WriteLine("[0] Sair");
-            Console.WriteLine("[1] Visitar sistema");
-            Console.WriteLine("[2] Login");
-            Console.WriteLine("[3] Cadastrar cliente");
-            Console.WriteLine("[4] Cadastrar prestador");
-            if (c[2] == "") Console.WriteLine("[5] Cadastrar categoria");
-
-            //ADICIONAR AS OUTRAS OPÇÕES (MUDAR DADOS, ACESSAR DADOS)
-            //ONDE QUE FICA A PARTE DE SOLICITAR SERVICO? TEM QUE VER ISSO AI
-
-
-            Console.WriteLine("");
-            op = int.Parse(Console.ReadLine());
-            int id = 0;
-            switch (op)
-            {
-                case 1: Console.WriteLine("[MOSTRAR DADOS DE CONTATO E CATEGORIAS]"); break;
-                //MOSTRAR AS CATEGORIAS E DADOS DE CONTATO
-                case 2: Console.WriteLine("[mostrando área de login]"); break;
-                case 3:
-                    {
-                        id++;
-                        Console.WriteLine("");
-                        Console.WriteLine("CADASTRO");
-                        Console.WriteLine("");
-
-                        Console.Write("Nome:");
-                        string nome = Console.ReadLine();
-
-                        Console.Write("Sobrenome:");
-                        string sobrenome = Console.ReadLine();
-
-                        Console.Write("Data de nascimento:");
-                        DateTime dataNascimento = DateTime.Parse(Console.ReadLine()); // dd/mm/yyyy
-
-                        Console.Write("CPF:");
-                        string cpf = Console.ReadLine();
-
-                        Console.Write("E-mail para contato:");
-                        string email = Console.ReadLine();
-
-                        Console.Write("Sexo: (M ou F)");
-                        string sexo = Console.ReadLine();
-
-                        Console.Write("Endereço:");
-                        string endereço = Console.ReadLine();
-
-                        Console.Write("Bairro:");
-                        string bairro = Console.ReadLine();
-
-                        Console.Write("Cidade:");
-                        string cidade = Console.ReadLine();
-
-                        Console.Write("Telefone para contato:");
-                        string telefone = Console.ReadLine();
-
-                        Console.Write("Informe uma senha:");
-                        string senha = Console.ReadLine();
-
-                        Cliente c = new Cliente(id, nome, sobrenome, dataNascimento, cpf, email, sexo, endereço, bairro, cidade, telefone, senha);
-                        break;
-                    }
-
-                default: Console.WriteLine("Opção inválida"); break;
-            }
+      Console.WriteLine("Escolha uma opção:");
+      Console.WriteLine("[0] Sair");
+      Console.WriteLine("[1] Visitar sistema");
+      Console.WriteLine("[2] Mostrar dados");
+      Console.WriteLine("[3] Cadastrar cliente");
+      Console.WriteLine("[4] Cadastrar prestador");
+      Console.WriteLine("[5] Cadastrar categoria");
+      Console.WriteLine("");
+    
+      op = int.Parse(Console.ReadLine());
+      switch (op)
+      {
+        case 0: break;  
+        case 1:{
+          Console.WriteLine("telefone = 400028922"); 
+          for(int i  = 0; i < 4; i++){
+            Console.WriteLine(categor[i].ToString());
+          }
+          break;
         }
+        case 2: 
+          Console.WriteLine("Selecione o id do usuario");
+          int x = int.Parse(Console.ReadLine());
+          Console.WriteLine(c[x].ToString());
+        break;
+        case 3:
+        {
+          Console.WriteLine("");
+          Console.WriteLine("CADASTRO");
+          Console.WriteLine("");
+          c[idcliente] = new Cliente(01, "radmila", "gama","123456789", "@gmail.com", "F", "Rua", "Bairro", "cidade", "87996", "senha123");
+          idcliente++;
+          break;
+        }
+        case 4:{
+          Console.WriteLine("CADASTRAR CATEGORIA");
+          Console.WriteLine("");
+          Console.WriteLine("Digite o nome da categoria");
+          categor[idcategor] = new Categoria(idcategor+1, Console.ReadLine());
+          break;
+        }
+        default: Console.WriteLine("Opção inválida"); break;
+      }
     }
+  }
 }
