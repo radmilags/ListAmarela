@@ -12,11 +12,12 @@ class Prestador{
     private string cidade;
     private string telefone;
     private string senha;
+    private Categoria cat;
 
     //adicionar atributo categoria
 
   
-    public Prestador(int id, string nome, string sobrenome, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, string senha)
+    public Prestador(int id, string nome, string sobrenome, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, Categoria cat, string senha)
     {
         this.id = id;
         if (nome != "") this.nome = nome;
@@ -29,6 +30,7 @@ class Prestador{
         if (cidade != "") this.cidade = cidade;
         if (telefone != "") this.telefone = telefone;
         if (senha != "") this.senha = senha;
+        this.cat = cat;
     }
     public string GetNome() { return this.nome; }
     public string GetSobrenome() { return this.sobrenome; }
@@ -40,8 +42,9 @@ class Prestador{
     public string Getcidade() { return this.cidade; }
     public string Gettelefone() { return this.telefone; }
     public string Getsenha() { return this.senha; }
+    public Categoria GetCategoria() { return this.cat; }
 
     //ToString
 
-    public override string ToString() { return $"{this.nome} {this.sobrenome} - {this.telefone}"; }
+    public override string ToString() { return $"{this.nome} {this.sobrenome} - {this.telefone} - {this.cat}"; }
 }
