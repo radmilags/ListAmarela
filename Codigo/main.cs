@@ -9,7 +9,7 @@ class Program
     Console.WriteLine("ListAmarela");
     Console.WriteLine("");
     Cliente[] c = new Cliente[3];
-    Categoria[] categor = new Categoria[4];
+    Categoria[] categor = new Categoria[3];
     Prestador[] prest = new Prestador[3];
     int op = -1;
     while (op != 0)
@@ -53,11 +53,12 @@ class Program
           Console.WriteLine("CADASTRO");
           Console.WriteLine("");
           Console.WriteLine("Escolha o número categoria");
-          for(int i = 0; i < 4; i++){
+          for(int i = 0; i < 3; i++){
             Console.WriteLine(categor[i].ToString());
           }
           int escolha = int.Parse(Console.ReadLine());
-          prest[idprestador] = new Prestador(01, "radmila", "gama","123456789", "@gmail.com", "F", "Rua", "Bairro", "cidade", "87996", categor[escolha], "senha123");
+          prest[idprestador] = new Prestador(idprestador+1, "radmila", "gama","123456789", "@gmail.com", "F", "Rua", "Bairro", "cidade", "87996", categor[escolha], "senha123");
+          idprestador++;
           break;
         }
         case 5:{
@@ -65,6 +66,7 @@ class Program
           Console.WriteLine("");
           Console.WriteLine("Digite o nome da categoria");
           categor[idcategor] = new Categoria(idcategor+1, Console.ReadLine());
+          idcategor++;
           break;
         }
         default: Console.WriteLine("Opção inválida"); break;
