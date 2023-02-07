@@ -3,6 +3,7 @@ class Prestador{
   private int id;
     private string nome;
     private string sobrenome;
+    private double valor;
     private string cpf;
     private string email;
     private string sexo;
@@ -16,11 +17,12 @@ class Prestador{
     //adicionar atributo categoria
 
   
-    public Prestador(int id, string nome, string sobrenome, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, Categoria cat, string senha)
+    public Prestador(int id, string nome, string sobrenome, double valor, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, Categoria cat, string senha)
     {
         this.id = id;
         if (nome != "") this.nome = nome;
         if (sobrenome != "") this.sobrenome = sobrenome;
+        if (valor != 0.0) this.valor = valor;
         if (cpf != "") this.cpf = cpf;
         if (email != "") this.email = email;
         if (sexo != "") this.sexo = sexo;
@@ -33,6 +35,7 @@ class Prestador{
     }
     public string GetNome() { return this.nome; }
     public string GetSobrenome() { return this.sobrenome; }
+    public double GetValor() { return this.valor; }
     public string Getcpf() { return this.cpf; }
     public string Getemail() { return this.email; }
     public string Getsexo() { return this.sexo; }
@@ -45,5 +48,5 @@ class Prestador{
 
     //ToString
 
-    public override string ToString() { return $"{this.nome} {this.sobrenome} - {this.telefone} - {this.cat}"; }
+    public override string ToString() { return $"Nome: {this.nome} {this.sobrenome} \nTelefone para contato: {this.telefone} \nValor da hora de trabalho: R$ {this.valor},00 \nEspecialidade: {this.cat} \nBairro: {this.bairro} "; }
 }
