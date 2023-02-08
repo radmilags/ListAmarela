@@ -95,8 +95,9 @@ class Program
           }
           else if(op1 == 2){
             Console.WriteLine("Digite o id da categoria a ser removido");
-            categor.Remove(int.Parse(Console.ReadLine()));
+            categor.RemoveAt(int.Parse(Console.ReadLine()));
           }
+          else Console.WriteLine("Opção inválida");
           
           break;
         }
