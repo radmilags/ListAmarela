@@ -1,4 +1,4 @@
-using System; // IComparable
+using System; // Tem que ter ordenacao
 
 class Categoria{
   private int id;
