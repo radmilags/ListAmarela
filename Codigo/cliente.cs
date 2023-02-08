@@ -39,5 +39,5 @@ class Cliente{
 
     //ToString
 
-    public override string ToString() { return $"{this.nome} {this.sobrenome} - {this.telefone}"; }
+    public override string ToString() { return $"Nome: {this.nome} {this.sobrenome} - Telefone: {this.telefone}"; }
 }

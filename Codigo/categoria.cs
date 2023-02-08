@@ -1,4 +1,4 @@
-using System;
+using System; // IComparable
 
 class Categoria{
   private int id;
@@ -7,5 +7,5 @@ class Categoria{
     this.id = id;
     if(nome!="") this.nome = nome;
   }
-  public override string ToString(){ return $"{this.id} - {this.nome}"; }
+  public override string ToString(){ return $"[{this.id}] {this.nome}"; }
 }
