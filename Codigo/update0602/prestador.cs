@@ -48,5 +48,5 @@ class Prestador{
 
     //ToString
 
-    public override string ToString() { return $"Nome: {this.nome} {this.sobrenome} \nTelefone para contato: {this.telefone} \nValor da hora de trabalho: R$ {this.valor},00 \nEspecialidade: {this.cat} \nBairro: {this.bairro} "; }
+    public override string ToString() { return $"Nome: {this.nome} {this.sobrenome} - Telefone para contato: {this.telefone} \nValor da hora de trabalho: R$ {this.valor},00 \nEspecialidade: {this.cat} \nBairro: {this.bairro} "; }
 }
