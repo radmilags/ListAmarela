@@ -17,8 +17,8 @@ class Program
       Console.WriteLine("[0] Sair");
       Console.WriteLine("[1] Visitar sistema");
       Console.WriteLine("[2] Mostrar dados");
-      Console.WriteLine("[3] Cadastrar cliente");
-      Console.WriteLine("[4] Cadastrar Prestador");
+      Console.WriteLine("[3] Cadastrar cliente"); // transformar em CRUD
+      Console.WriteLine("[4] Cadastrar Prestador"); // transformar em CRUD
       Console.WriteLine("[5] CRUD categoria");
       Console.WriteLine("");
 
