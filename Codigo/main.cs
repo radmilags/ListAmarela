@@ -1,19 +1,16 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
   public static void Main()
   {
-    int idcliente = 0; int idcategor = 3; int idprestador = 0;
-    Console.WriteLine("ListAmarela");
-    Console.WriteLine("");
-    Cliente[] c = new Cliente[3];
-    Categoria[] categor = new Categoria[4];
-    categor[0] = new Categoria(1, "Mecanico");
-    categor[1] = new Categoria(2, "Faxineiro");
-    categor[2] = new Categoria(3, "Jardineiro");
+    int idcliente = 0; int idcategor = 3; int idprestador = 0; int op = -1;
+    Console.WriteLine("ListAmarela\n\n");
+    
+    List<Cliente> c  = new List<Cliente>();
+    List<Categoria> categor = new List<Categoria>();
     Prestador[] prest = new Prestador[3];
-    int op = -1;
     while (op != 0)
     {
       Console.WriteLine("Escolha uma opção:");
@@ -60,20 +57,16 @@ class Program
           Console.WriteLine("");
           
         break;
-
-        
         case 3:
-          {
-            Console.WriteLine("");
-            Console.WriteLine("CADASTRO");
-            Console.WriteLine("");
-            //id, nome, sobrenome, cpf, email, sexo,  endereco, bairro, cidade, telefone, Categoria, senha
-            c[idcliente] = new Cliente(idcliente + 1, "radmila", "gama", "123456789", "@gmail.com", "F", "Rua", "Bairro", "cidade", "87996", "senha123");
-            idcliente++;
-            Console.WriteLine("");
-            
-            break;
-          }
+        {
+          Console.WriteLine("CADASTRO\n\n");
+          //id, nome, sobrenome, cpf, email, sexo,  endereco, bairro, cidade, telefone, Categoria, senha
+          c.Add(new Cliente(idcliente, "radmila", "gama", "123456789", "@gmail.com", "F", "Rua", "Bairro", "cidade", "87996", "senha123"));
+          idcliente++;
+          Console.WriteLine("");
+          
+          break;
+        }
         case 4:
         {
           Console.WriteLine("");
@@ -88,23 +81,22 @@ class Program
           }
           Console.WriteLine("");
           int escolha = int.Parse(Console.ReadLine());
-          prest[idprestador] = new Prestador(idprestador + 1, "radmila", "gama", "123456789", "@gmail.com", "F", "Rua", "Bairro", "cidade", "87996", categor[escolha], "senha123");
+          prest[idprestador] = new Prestador(idprestador, "radmila", "gama", "123456789", "@gmail.com", "F", "Rua", "Bairro", "cidade", "87996", categor[escolha], "senha123");
           idprestador++;
           Console.WriteLine("");
           
           break;
         }
         case 5:
-            {
-              Console.WriteLine("CADASTRAR CATEGORIA");
-              Console.WriteLine("");
-              Console.WriteLine("Digite o nome da categoria");
-              categor[idcategor] = new Categoria(idcategor + 1, Console.ReadLine());
-              idcategor++;
-              Console.WriteLine("");
-              
-              break;
-            }
+        {
+          Console.WriteLine("CADASTRAR CATEGORIA\n\n");
+          Console.WriteLine("Digite o nome da categoria");
+          categor.Add(new Categoria(idcategor, Console.ReadLine()));
+          idcategor++;
+          Console.WriteLine("");
+          
+          break;
+        }
         default: Console.WriteLine("Opção inválida"); break;
       }
     }
