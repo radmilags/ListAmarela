@@ -7,7 +7,7 @@ Documentação:
 - ~~Diagrama de casos de uso - Radmila~~
 - ~~Diagrama de classes - Radmila~~
 
-Codificação:
+DEMANDAS:
 - Implementação das classes usuários
 - Implementação das classes serviço
 - Menu do main
