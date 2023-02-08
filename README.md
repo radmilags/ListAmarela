@@ -11,7 +11,9 @@ Codificação:
 - Implementação das classes usuários
 - Implementação das classes serviço
 - Menu do main
-- Icomparable
+- Transformar tudo que é array em list
+- Detele e update
+- Ordenação
 - Conceitos de herança
 
 Interface: Será desenvolvida somentes quando o projeto ListAmarela for exibido no PDS, no terceiro semestre.
