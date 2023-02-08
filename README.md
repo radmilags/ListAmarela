@@ -8,8 +8,8 @@ Documentação:
 - ~~Diagrama de classes - Radmila~~
 
 DEMANDAS:
-- Implementação das classes usuários
-- Implementação das classes serviço
+- ~~~Implementação das classes usuários~~~
+- ~~Implementação das classes serviço~~
 - Menu do main
 - Transformar tudo que é array em list
 - Detele e update
