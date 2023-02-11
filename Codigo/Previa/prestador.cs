@@ -1,38 +1,58 @@
+using System.Xml.Serialization;
 
-class Prestador{
-    private int id;
-    private string nome;
-    private string sobrenome;
-    private double valor;
-    private string cpf;
-    private string email;
-    private string sexo;
-    private string endereco;
-    private string bairro;
-    private string cidade;
-    private string telefone;
-    private string senha;
-    private Categoria cat;
+
+[XmlInclude(typeof(Categoria))]
+public class Prestador{
+    public int id;
+    public string nome;
+    public string sobrenome;
+    public double valor;
+    public string cpf;
+    public string email;
+    public string sexo;
+    public string endereco;
+    public string bairro;
+    public string cidade;
+    public string telefone;
+    public string senha;
+    public Categoria cat;
 
 
 
     //adicionar atributo categoria
 
-  
+    
+    public Prestador() {}
     public Prestador(int id, string nome, string sobrenome, double valor, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, Categoria cat, string senha)
     {
         this.id = id;
-        if (nome != "") this.nome = nome;
-        if (sobrenome != "") this.sobrenome = sobrenome;
-        if (valor != 0.0) this.valor = valor;
-        if (cpf != "") this.cpf = cpf;
-        if (email != "") this.email = email;
-        if (sexo != "") this.sexo = sexo;
-        if (endereco != "") this.endereco = endereco;
-        if (bairro != "") this.bairro = bairro;
-        if (cidade != "") this.cidade = cidade;
-        if (telefone != "") this.telefone = telefone;
-        if (senha != "") this.senha = senha;
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.valor = valor;
+        this.cpf = cpf;
+        this.email = email;
+        this.sexo = sexo;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.telefone = telefone;
+        this.senha = senha;
+        this.cat = cat;
+    }
+
+   public void SetPrestador(string nome, string sobrenome, double valor, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, Categoria cat, string senha)
+    {
+        this.nome = nome;
+        this.sobrenome = sobrenome;
+        this.valor = valor;
+        this.cpf = cpf;
+        this.email = email;
+        this.sexo = sexo;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.telefone = telefone;
+        this.senha = senha;
         this.cat = cat;
     }
     public string GetNome() { return this.nome; }
@@ -51,6 +71,8 @@ class Prestador{
     //ToString
 
 
-    public override string ToString() { return $"Nome: {this.nome} {this.sobrenome} \nTelefone para contato: {this.telefone} \nValor da hora de trabalho: R$ {this.valor},00 \nEspecialidade: {this.cat} \nBairro: {this.bairro} "; }
+    public override string ToString() { 
+        return $"Nome: {this.nome} {this.sobrenome} \nTelefone para contato: {this.telefone} \nValor da hora de trabalho: R$ {this.valor},00 \nEspecialidade: {this.cat} \nBairro: {this.bairro} "; 
+    }
 }
 
