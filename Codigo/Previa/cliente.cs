@@ -1,19 +1,33 @@
 
-class Cliente{
-  private int id;
-    private string nome;
-    private string sobrenome;
-    private string cpf;
-    private string email;
-    private string sexo;
-    private string endereco;
-    private string bairro;
-    private string cidade;
-    private string telefone;
-    private string senha;
+public class Cliente{
+    public int id;
+    public string nome;
+    public string sobrenome;
+    public string cpf;
+    public string email;
+    public string sexo;
+    public string endereco;
+    public string bairro;
+    public string cidade;
+    public string telefone;
+    public string senha;
+    public Cliente() {}
     public Cliente(int id, string nome, string sobrenome, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, string senha)
     {
         this.id = id;
+        if (nome != "") this.nome = nome;
+        if (sobrenome != "") this.sobrenome = sobrenome;
+        if (cpf != "") this.cpf = cpf;
+        if (email != "") this.email = email;
+        if (sexo != "") this.sexo = sexo;
+        if (endereco != "") this.endereco = endereco;
+        if (bairro != "") this.bairro = bairro;
+        if (cidade != "") this.cidade = cidade;
+        if (telefone != "") this.telefone = telefone;
+        if (senha != "") this.senha = senha;
+    }
+  public void SetCliente( string nome, string sobrenome, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, string senha)
+    {
         if (nome != "") this.nome = nome;
         if (sobrenome != "") this.sobrenome = sobrenome;
         if (cpf != "") this.cpf = cpf;
