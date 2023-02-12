@@ -1,108 +1,375 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Xml.Serialization;
+using System.Linq;
 
 class Program
 {
-  public static void Main()
-  {
-    int idcliente = 0; int idcategor = 0; int idprestador = 0; int op = -1;
-    Console.WriteLine("ListAmarela\n\n");
-    
-    List<Cliente> c  = new List<Cliente>();
-    List<Categoria> categor = new List<Categoria>();
-    Prestador[] prest = new Prestador[3];
-    while (op != 0)
+    public static void Main()
     {
-      Console.WriteLine("Escolha uma opção:");
-      Console.WriteLine("[0] Sair");
-      Console.WriteLine("[1] Visitar sistema");
-      Console.WriteLine("[2] Mostrar dados");
-      Console.WriteLine("[3] Cadastrar cliente"); // transformar em CRUD
-      Console.WriteLine("[4] Cadastrar Prestador"); // transformar em CRUD
-      Console.WriteLine("[5] CRUD categoria");
       Console.WriteLine("");
+      Console.WriteLine("ListAmarela");
+      Console.WriteLine("");
+      List<Cliente> clientes = new List<Cliente>();
+      List<Categoria> categorias = new List<Categoria>();
+      List<Prestador> prestadores = new List<Prestador>();
 
-      op = int.Parse(Console.ReadLine());
       
-      switch (op)
+      int op = -1;
+
+      int escolha;
+      
+      while (op != 0)
       {
-        case 0: break;
-        case 1:
+        Console.WriteLine("Escolha uma opção:");
+        Console.WriteLine("[0] Sair");
+        Console.WriteLine("[1] Deletar Cadastro");
+        Console.WriteLine("[2] Listar prestadores");
+        Console.WriteLine("[3] Cadastrar cliente");
+        Console.WriteLine("[4] Cadastrar Prestador");
+        Console.WriteLine("[5] Cadastrar categoria");
+        Console.WriteLine("[6] Opção indisponível no momento");
+        Console.WriteLine("[7] Atualizar prestador");
+        Console.WriteLine("");
+
+        op = int.Parse(Console.ReadLine());
+        switch (op)
         {
-          Console.Clear();
-          Console.WriteLine("telefone = 400028922");
-          for (int i = 0; i < categor.Count; i++) Console.WriteLine(categor[i].ToString());
-          break;
-        }
-        case 2:
-          Console.Clear();
-          Console.Write("Cliente (1) ou prestador (2):\n\n");
-          int x = int.Parse(Console.ReadLine());
-          if(x == 1){
-          Console.Write("Selecione o id do usuario: \n\n");
-          int y = int.Parse(Console.ReadLine());
-          Console.WriteLine(c[y].ToString());
-        }
-        else{
-          Console.WriteLine("Selecione o id do usuario\n\n");
-          int y = int.Parse(Console.ReadLine());
-          Console.WriteLine(prest[y].ToString());
-        }  
-        break;
-        case 3:
-        {
-          Console.Clear();
-          Console.WriteLine("CADASTRO\n\n");
-          //id, nome, sobrenome, cpf, email, sexo,  endereco, bairro, cidade, telefone, Categoria, senha
-          c.Add(new Cliente(idcliente, "radmila", "gama", "123456789", "@gmail.com", "F", "Rua", "Bairro", "cidade", "87996", "senha123"));
-          idcliente++;
-          break;
-        }
-        case 4:
-        {
-          Console.Clear();
-          Console.WriteLine("CADASTRO");
-          Console.WriteLine("Escolha o número categoria\n\n");
-          for (int i = 0; i < 3; i++)
-          {
-            Console.WriteLine(categor[i].ToString());
+          case 0: break;
+          case 1:
+            {
+            // buscando listas dos prestadores no arquivo .xml
+            Persistencia<Prestador> bancodados = new Persistencia<Prestador>();
+            prestadores = bancodados.AbrirArquivo("./prestadores.xml");
+              
+            int op2 = 1;
+            int op3 = 0;
+            Console.WriteLine("");
+            foreach (Prestador prestador in prestadores) {
+               Console.WriteLine($"[{op2}] {prestador.ToString()}");
+               Console.WriteLine("");
+               op2++;
+            }
+
+            Console.Write("Escolha um opção para deletar: ");
+            op3 = int.Parse(Console.ReadLine());
+            Console.WriteLine("");
+            
+            prestadores.RemoveAt(op3-1);
+
+            bancodados.SalvarArquivo("./prestadores.xml", prestadores);
+            
+            break;
           }
-          int escolha = int.Parse(Console.ReadLine());
-          prest[idprestador] = new Prestador(idprestador, "radmila", "gama", "123456789", "@gmail.com", "F", "Rua", "Bairro", "cidade", "87996", categor[escolha], "senha123");
-          idprestador++;
+          case 2:
+            {
+
+            Persistencia<Prestador> bancodados = new Persistencia<Prestador>();
+            prestadores = bancodados.AbrirArquivo("./prestadores.xml");
+            Persistencia<Categoria> bancocategorias = new Persistencia<Categoria>();
+            categorias = bancocategorias.AbrirArquivo("./categorias.xml");
+
+            int op3 = 1;
+            foreach (Categoria categoria in categorias) {
+              Console.WriteLine($"[{op3}] - {categoria.ToString()}");
+              op3++;
+              
+            }
+            Console.WriteLine($"[99] - Todos");
+  
+            Console.WriteLine("");
+            Console.Write("Escolha o número categoria: ");
+            escolha = int.Parse(Console.ReadLine());
+            Console.WriteLine("");
+
+            if (escolha == 99) {
+              Console.WriteLine("");
+              Console.WriteLine("Lista de Prestadores");
+              Console.WriteLine("");
+              foreach (Prestador prestador in prestadores) {
+                Console.WriteLine(prestador.ToString());
+                Console.WriteLine("");
+              } 
+            } 
+            else {
+              escolha = escolha - 1;
+              foreach (Prestador prestador in prestadores) {
+                if (prestador.cat.nome == categorias[escolha].nome) {
+                  Console.WriteLine(prestador.ToString());
+                  Console.WriteLine("");
+                }
+              }
+            }
+                       
+           
+            Console.WriteLine(""); 
+            
+          break;
+        }     
+          case 3:
+            {
+            Persistencia<Cliente> bancoclientes = new Persistencia<Cliente>();
+            clientes = bancoclientes.AbrirArquivo("./clientes.xml");
+            
+            Console.WriteLine("");
+            Console.WriteLine("CADASTRO");
+            Console.WriteLine("");
+
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine();
+    
+            Console.Write("Sobrenome: ");
+            string sobrenome = Console.ReadLine();
+         
+            Console.Write("CPF: ");
+            string cpf = Console.ReadLine();
+    
+            Console.Write("E-mail para contato: ");
+            string email = Console.ReadLine();
+    
+            Console.Write("Sexo: ");
+            string sexo = Console.ReadLine();
+    
+            Console.Write("Endereço: ");
+            string endereco = Console.ReadLine();
+    
+            Console.Write("Bairro: ");
+            string bairro = Console.ReadLine();
+    
+            Console.Write("Cidade: ");
+            string cidade = Console.ReadLine();
+    
+            Console.Write("Telefone para contato: ");
+            string telefone = Console.ReadLine();
+    
+            Console.Write("Informe uma senha: ");
+            string senha = Console.ReadLine();
+
+            int idcliente;
+            
+            if (clientes.Count == 0) idcliente = 1;
+            else {
+              idcliente = clientes.Max(f=>f.id);
+              idcliente++;
+              }
+
+            Cliente novocliente = new Cliente(idcliente, nome, sobrenome, cpf, email, sexo, endereco, bairro, cidade, telefone, senha);
+
+            clientes.Add(novocliente);
+
+            Console.WriteLine("");
+
+
+            bancoclientes.SalvarArquivo("./clientes.xml", clientes);
+            
+            break;
+            }
+          case 4:
+            {
+            Persistencia<Prestador> bancodados = new Persistencia<Prestador>();
+            prestadores = bancodados.AbrirArquivo("./prestadores.xml");
+            Persistencia<Categoria> bancocategorias = new Persistencia<Categoria>();
+            categorias = bancocategorias.AbrirArquivo("./categorias.xml");
+              
+            Console.WriteLine("");
+            Console.WriteLine("CADASTRAR PRESTADOR");
+            Console.WriteLine("");
           
-          break;
-        }
-        case 5:
-        {
-          Console.Clear();
-          Console.WriteLine("Escolha uma opção:");
-          Console.WriteLine("[0] Sair");
-          Console.WriteLine("[1] Cadastrar Categoria");
-          Console.WriteLine("[2] Atualizar Categoria");
-          Console.WriteLine("[3] Remover Categoria");
-          if(categor.Count > 0){
-            for (int i = 0; i < categor.Count; i++) Console.WriteLine(categor[i].ToString());
+            int op2 = 1;
+            foreach (Categoria categoria in categorias) {
+              Console.WriteLine($"[{op2}] - {categoria.ToString()}");
+              op2++;
+              
+            }
+            Console.WriteLine("");
+            Console.Write("Escolha o número categoria: ");  
+            escolha = int.Parse(Console.ReadLine());
+            Console.WriteLine("");
+
+            Console.WriteLine("INFORME SEUS DADOS");
+            Console.WriteLine("");
+           
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine();
+    
+            Console.Write("Sobrenome: ");
+            string sobrenome = Console.ReadLine();
+
+            Console.Write("Valor da hora de trabalho: ");
+            double valor = double.Parse(Console.ReadLine());
+        
+            Console.Write("CPF: ");
+            string cpf = Console.ReadLine();
+    
+            Console.Write("E-mail para contato: ");
+            string email = Console.ReadLine();
+    
+            Console.Write("Sexo: ");
+            string sexo = Console.ReadLine();
+    
+            Console.Write("Endereço: ");
+            string endereco = Console.ReadLine();
+    
+            Console.Write("Bairro: ");
+            string bairro = Console.ReadLine();
+    
+            Console.Write("Cidade: ");
+            string cidade = Console.ReadLine();
+    
+            Console.Write("Telefone para contato: ");
+            string telefone = Console.ReadLine();
+    
+            Console.Write("Informe uma senha: ");
+            string senha = Console.ReadLine();
+
+            int idprestador;
+              
+            if (prestadores.Count == 0) idprestador = 1;
+            else {
+              idprestador = prestadores.Max(f=>f.id);
+              idprestador++;
+              }
+ 
+            Prestador novoprestador = new Prestador(idprestador , nome, sobrenome, valor, cpf, email, sexo, endereco, bairro, cidade, telefone, categorias[escolha-1], senha);
+            prestadores.Add(novoprestador);
+
+            Console.WriteLine("");
+            Console.WriteLine("Cadastro efetuado com sucesso");
+            Console.WriteLine("");
+            Console.WriteLine("");
+              
+            bancodados.SalvarArquivo("./prestadores.xml", prestadores);
+            
+            break;
           }
-          int op1 = int.Parse(Console.ReadLine());
-          if(op1 == 0) break;
-          else if(op1 == 1) {
-            Console.Clear();
-            Console.WriteLine("CADASTRAR CATEGORIA\n\n");
+          case 5:
+            {
+            Persistencia<Categoria> bancocategorias = new Persistencia<Categoria>();
+            categorias = bancocategorias.AbrirArquivo("./categorias.xml");
+
+            Console.WriteLine("CADASTRAR CATEGORIA");
+            Console.WriteLine("");
             Console.WriteLine("Digite o nome da categoria");
-            categor.Add(new Categoria(idcategor, Console.ReadLine()));
-            idcategor++;
-          }
-          else if(op1 == 2){
-            Console.WriteLine("Digite o id da categoria a ser removido");
-            categor.RemoveAt(int.Parse(Console.ReadLine()));
-          }
-          else Console.WriteLine("Opção inválida");
+            Console.WriteLine("");
+
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine();
+
+            int idcategoria;
+              
+            if (prestadores.Count == 0) idcategoria = 1;
+            else {
+              idcategoria = categorias.Max(f=>f.id);
+              idcategoria++;
+              }
+
+            Categoria novacategoria = new Categoria(idcategoria, nome);
+            Console.WriteLine("");
+
+            categorias.Add(novacategoria);
+
+            bancocategorias.SalvarArquivo("./categorias.xml", categorias);
+
+            break;
+            }
+          case 6:
+            {
+            Console.WriteLine("");
+            Console.WriteLine("Lista Serializada:");
+            Console.WriteLine("");
+            XmlSerializer serializer = new XmlSerializer(typeof(Prestador));
+            using (TextWriter writer = new StreamWriter("prestador.xml"))
+            {
+                int count = 1;
+                foreach (Prestador prestador in prestadores)
+                {
+                    Console.WriteLine("Nome: " + prestador.nome);
+                    Console.WriteLine("ValorDaHoraTrabalhada: " + prestador.valor);
+                    Console.WriteLine("Bairro: " + prestador.bairro);
+                    Console.WriteLine("TelefoneParaContato: " + prestador.telefone);
+                    Console.WriteLine("");
+                    prestador.id = count++;
+                    serializer.Serialize(writer, prestador);
+                }
+            }
+            break;}
+          case 7: 
+            {
+
+            Persistencia<Prestador> bancodados = new Persistencia<Prestador>();
+            prestadores = bancodados.AbrirArquivo("./prestadores.xml");
+            Persistencia<Categoria> bancocategorias = new Persistencia<Categoria>();
+            categorias = bancocategorias.AbrirArquivo("./categorias.xml");
+              
+            Console.WriteLine("");
+            Console.WriteLine("Atualizar");
+            Console.WriteLine("");
+
+            int op2 = 1;
+            foreach (Prestador prestador in prestadores) {
+               Console.WriteLine($"[{op2}] {prestador.ToString()}");
+               Console.WriteLine("");
+               op2++;
+            }              
+
+            Console.Write("ID: ");
+            int id = int.Parse(Console.ReadLine());
           
-          break;
+            Console.Write("Nome: ");
+            string nome = Console.ReadLine();
+    
+            Console.Write("Sobrenome: ");
+            string sobrenome = Console.ReadLine();
+
+            Console.Write("Valor da hora de trabalho: ");
+            double valor = double.Parse(Console.ReadLine());
+
+            Console.Write("CPF: ");
+            string cpf = Console.ReadLine();
+    
+            Console.Write("E-mail para contato: ");
+            string email = Console.ReadLine();
+    
+            Console.Write("Sexo: ");
+            string sexo = Console.ReadLine();
+    
+            Console.Write("Endereço: ");
+            string endereco = Console.ReadLine();
+    
+            Console.Write("Bairro: ");
+            string bairro = Console.ReadLine();
+    
+            Console.Write("Cidade: ");
+            string cidade = Console.ReadLine();
+    
+            Console.Write("Telefone para contato: ");
+            string telefone = Console.ReadLine();
+
+            
+            int op3 = 1;
+            foreach (Categoria categoria in categorias) {
+              Console.WriteLine($"[{op3}] - {categoria.ToString()}");
+              op3++;
+              
+            }
+              
+            Console.WriteLine("");
+            Console.Write("Escolha o número categoria: ");
+            escolha = int.Parse(Console.ReadLine());
+            Console.WriteLine("");
+    
+            Console.Write("Informe uma senha: ");
+            string senha = Console.ReadLine();
+
+            prestadores[id-1].SetPrestador(nome, sobrenome, valor, cpf, email, sexo, endereco, bairro, cidade, telefone, categorias[escolha-1], senha);
+
+            bancodados.SalvarArquivo("./prestadores.xml", prestadores);
+          
+            break;
+          }
+          default: Console.WriteLine("Opção inválida"); break;
         }
-        default: Console.WriteLine("Opção inválida"); break;
       }
     }
-  }
 }
