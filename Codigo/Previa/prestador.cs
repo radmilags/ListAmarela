@@ -1,8 +1,9 @@
 using System.Xml.Serialization;
+using System;
 
 
 [XmlInclude(typeof(Categoria))]
-public class Prestador{
+public class Prestador : IComparable<Prestador> {
     public int id;
     public string nome;
     public string sobrenome;
@@ -70,7 +71,11 @@ public class Prestador{
 
     //ToString
 
-
+    public int CompareTo(Prestador outroPrestador)
+    {
+        return this.valor.CompareTo(outroPrestador.valor);
+    }
+  
     public override string ToString() { 
         return $"Nome: {this.nome} {this.sobrenome} \nTelefone para contato: {this.telefone} \nValor da hora de trabalho: R$ {this.valor},00 \nEspecialidade: {this.cat} \nBairro: {this.bairro} "; 
     }
