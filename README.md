@@ -10,10 +10,10 @@ Documentação:
 DEMANDAS:
 - ~~~Implementação das classes usuários~~~
 - ~~Implementação das classes serviço~~
-- Menu do main
-- Transformar tudo que é array em list
-- Detele e update
-- Ordenação
+- ~~Menu do main~~
+- ~~Transformar tudo que é array em list~~
+- ~~Detele e update~~
+- ~~Ordenação~~ (em parte, falta ordenar por categoria e preço)
 - Conceitos de herança
 
 Interface: Será desenvolvida somentes quando o projeto ListAmarela for exibido no PDS, no terceiro semestre.
