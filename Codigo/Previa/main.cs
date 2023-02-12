@@ -22,24 +22,26 @@ class Program
       
       while (op != 0)
       {
-        Console.WriteLine("Escolha uma opção:");
+        Console.WriteLine("");
         Console.WriteLine("[0] Sair");
         Console.WriteLine("[1] Deletar Cadastro");
-        Console.WriteLine("[2] Mostrar dados");
+        Console.WriteLine("[2] Listar prestadores");
         Console.WriteLine("[3] Cadastrar cliente");
         Console.WriteLine("[4] Cadastrar Prestador");
         Console.WriteLine("[5] Cadastrar categoria");
         Console.WriteLine("[6] Opção indisponível no momento");
         Console.WriteLine("[7] Atualizar prestador");
+        
         Console.WriteLine("");
-
+        Console.Write("Escolha uma opção: ");
         op = int.Parse(Console.ReadLine());
+        Console.WriteLine("");
         switch (op)
         {
           case 0: break;
           case 1:
             {
-
+            // buscando listas dos prestadores no arquivo .xml
             Persistencia<Prestador> bancodados = new Persistencia<Prestador>();
             prestadores = bancodados.AbrirArquivo("./prestadores.xml");
               
@@ -67,16 +69,43 @@ class Program
 
             Persistencia<Prestador> bancodados = new Persistencia<Prestador>();
             prestadores = bancodados.AbrirArquivo("./prestadores.xml");
-              
-            Console.WriteLine("");
-            Console.WriteLine("Lista de Prestadores");
-            Console.WriteLine("");
-            foreach (Prestador prestador in prestadores) {
-              Console.WriteLine(prestador.ToString());
-              Console.WriteLine("");
+            Persistencia<Categoria> bancocategorias = new Persistencia<Categoria>();
+            categorias = bancocategorias.AbrirArquivo("./categorias.xml");
+
+            int op3 = 1;
+            foreach (Categoria categoria in categorias) {
+              Console.WriteLine($"[{op3}] - {categoria.ToString()}");
+              op3++;
               
             }
-            
+            Console.WriteLine($"[99] - Todos");
+  
+            Console.WriteLine("");
+            Console.Write("Escolha o número categoria: ");
+            escolha = int.Parse(Console.ReadLine());
+            Console.WriteLine("");
+
+            if (escolha == 99) {
+              Console.WriteLine("");
+              Console.WriteLine("Lista de Prestadores");
+              Console.WriteLine("");
+              foreach (Prestador prestador in prestadores) {
+                Console.WriteLine(prestador.ToString());
+                Console.WriteLine("");
+              } 
+            } 
+            else {
+              escolha = escolha - 1;
+              prestadores.Sort((p1, p2) => p1.valor.CompareTo(p2.valor));
+              foreach (Prestador prestador in prestadores) {
+                if (prestador.cat.nome == categorias[escolha].nome) {
+                  Console.WriteLine(prestador.ToString());
+                  Console.WriteLine("");
+                }
+              }
+              Console.WriteLine(">> FIM DA LISTA <<");
+            }
+                       
            
             Console.WriteLine(""); 
             
