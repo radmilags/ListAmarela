@@ -22,7 +22,7 @@ public class PrestadorService {
     }
 
     public void Atualizar(int id, Prestador atualizado) {
-        // Lógica de update aqui futuramente
+        // int index = prestadores.FindIndex(p => p.Id == id);
         this.Salvar();
     }
 
