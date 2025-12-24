@@ -46,19 +46,19 @@ docs/               # Documentação funcional e diagramas UML
 ```
 
 ✨ Funcionalidades
-*[x] Cadastro de Prestadores: Inclusão de profissionais com categoria e valor/hora.
+- [x] Cadastro de Prestadores: Inclusão de profissionais com categoria e valor/hora.
 
-*[x] Gestão de Clientes: Cadastro completo de usuários.
+- [x] Gestão de Clientes: Cadastro completo de usuários.
 
-*[x] Categorização: Organização de serviços por tipos.
+- [x] Categorização: Organização de serviços por tipos.
 
-*[x] Persistência Automática: Todos os dados são salvos em .xml automaticamente.
+- [x] Persistência Automática: Todos os dados são salvos em .xml automaticamente.
 
-*[x] Busca e Listagem: Visualização formatada dos dados.
+- [x] Busca e Listagem: Visualização formatada dos dados.
 
-*[ ] Sistema de Login: (Próxima feature).
+- [ ] Sistema de Login: (Próxima feature).
 
-*[ ] Ordenação Avançada: Filtros por preço e avaliação.
+- [ ] Ordenação Avançada: Filtros por preço e avaliação.
 
 ⚡ Como Rodar
 Pré-requisito: Ter o .NET SDK instalado.
@@ -80,3 +80,4 @@ dotnet run
 
 📚 Documentação
 A documentação completa do projeto (Diagramas de Classe, Casos de Uso e Visão) pode ser encontrada na pasta docs/.
+
