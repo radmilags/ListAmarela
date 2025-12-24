@@ -19,7 +19,6 @@ DEMANDAS:
 Interface: Será desenvolvida somentes quando o projeto ListAmarela for exibido no PDS, no terceiro semestre.
 
 
-
 ```
 ListAmarela
 ├─ README.md
@@ -31,12 +30,13 @@ ListAmarela
 │     ├─ usuario.png
 │     └─ visao.png
 └─ src
+   ├─ Program.cs
    ├─ categoria.cs
    ├─ cliente.cs
-   ├─ dadosC.cs
-   ├─ main.cs
+   ├─ persistencia.cs
    ├─ prestador.cs
    ├─ servicos.cs
-   └─ solicitacoes.cs
+   ├─ solicitacoes.cs
+   └─ src.csproj
 
 ```
