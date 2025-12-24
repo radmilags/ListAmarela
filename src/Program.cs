@@ -95,7 +95,7 @@ class Program
             else {
               escolha = escolha - 1;
               foreach (Prestador prestador in prestadores) {
-                if (prestador.cat.nome == categorias[escolha].nome) {
+                if (prestador.Categoria.Nome == categorias[escolha].Nome) {
                   Console.WriteLine(prestador.ToString());
                   Console.WriteLine("");
                 }
@@ -284,10 +284,10 @@ class Program
                 int count = 1;
                 foreach (Prestador prestador in prestadores)
                 {
-                    Console.WriteLine("Nome: " + prestador.nome);
-                    Console.WriteLine("ValorDaHoraTrabalhada: " + prestador.valor);
-                    Console.WriteLine("Bairro: " + prestador.bairro);
-                    Console.WriteLine("TelefoneParaContato: " + prestador.telefone);
+                    Console.WriteLine("Nome: " + prestador.Nome);
+                    Console.WriteLine("ValorDaHoraTrabalhada: " + prestador.Valor);
+                    Console.WriteLine("Bairro: " + prestador.Bairro);
+                    Console.WriteLine("TelefoneParaContato: " + prestador.Telefone);
                     Console.WriteLine("");
                     prestador.id = count++;
                     serializer.Serialize(writer, prestador);
