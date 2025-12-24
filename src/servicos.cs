@@ -1,6 +1,6 @@
 using System; //IComparable
 
-class Servico{
+public class Servico{
   private int id;
   private string nome;
   private double preco; // preco é por hora, tem que ter um metodo que calcule o preco total

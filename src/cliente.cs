@@ -1,6 +1,6 @@
 using System;
 
-class Cliente{
+public class Cliente{
   private int id;
     private string nome;
     private string sobrenome;

@@ -1,6 +1,6 @@
 using System;
 
-class Solicitacao{
+public class Solicitacao{
   private Servico s;
   public Solicitacao(Servico s){
     this.s = s;
