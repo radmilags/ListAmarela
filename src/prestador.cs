@@ -1,48 +1,52 @@
-class Prestador{
-  private int id;
-    private string nome;
-    private string sobrenome;
-    private double valor;
-    private string cpf;
-    private string email;
-    private string sexo;
-    private string endereco;
-    private string bairro;
-    private string cidade;
-    private string telefone;
-    private string senha;
-    private Categoria cat;
+public class Prestador {
+    public int Id { get; set; }
+    public string Nome { get; set; }
+    public string Sobrenome { get; set; }
+    public double Valor { get; set; }
+    public string Cpf { get; set; }
+    public string Email { get; set; }
+    public string Sexo { get; set; }
+    public string Endereco { get; set; }
+    public string Bairro { get; set; }
+    public string Cidade { get; set; }
+    public string Telefone { get; set; }
+    public string Senha { get; set; }
+    public Categoria Categoria { get; set; }
 
-    public Prestador(int id, string nome, string sobrenome, double valor, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, Categoria cat, string senha)
-    {
-        this.id = id;
-        if (nome != "") this.nome = nome;
-        if (sobrenome != "") this.sobrenome = sobrenome;
-        if (valor != 0.0) this.valor = valor;
-        if (cpf != "") this.cpf = cpf;
-        if (email != "") this.email = email;
-        if (sexo != "") this.sexo = sexo;
-        if (endereco != "") this.endereco = endereco;
-        if (bairro != "") this.bairro = bairro;
-        if (cidade != "") this.cidade = cidade;
-        if (telefone != "") this.telefone = telefone;
-        if (senha != "") this.senha = senha;
-        this.cat = cat;
+    public Prestador() { } // Construtor vazio para XML Serialization
+
+    public Prestador(int id, string nome, string sobrenome, double valor, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, Categoria cat, string senha) {
+        this.Id = id;
+        this.Nome = nome;
+        this.Sobrenome = sobrenome;
+        this.Valor = valor;
+        this.Cpf = cpf;
+        this.Email = email;
+        this.Sexo = sexo;
+        this.Endereco = endereco;
+        this.Bairro = bairro;
+        this.Cidade = cidade;
+        this.Telefone = telefone;
+        this.Categoria = cat;
+        this.Senha = senha;
     }
-    public string GetNome() { return this.nome; }
-    public string GetSobrenome() { return this.sobrenome; }
-    public double GetValor() { return this.valor; }
-    public string Getcpf() { return this.cpf; }
-    public string Getemail() { return this.email; }
-    public string Getsexo() { return this.sexo; }
-    public string Getendereco() { return this.endereco; }
-    public string Getbairro() { return this.bairro; }
-    public string Getcidade() { return this.cidade; }
-    public string Gettelefone() { return this.telefone; }
-    public string Getsenha() { return this.senha; }
-    public Categoria GetCategoria() { return this.cat; }
 
-    //ToString
+    public void SetPrestador(string nome, string sobrenome, double valor, string cpf, string email, string sexo, string endereco, string bairro, string cidade, string telefone, Categoria cat, string senha) {
+        this.Nome = nome;
+        this.Sobrenome = sobrenome;
+        this.Valor = valor;
+        this.Cpf = cpf;
+        this.Email = email;
+        this.Sexo = sexo;
+        this.Endereco = endereco;
+        this.Bairro = bairro;
+        this.Cidade = cidade;
+        this.Telefone = telefone;
+        this.Categoria = cat;
+        this.Senha = senha;
+    }
 
-    public override string ToString() { return $"Nome: {this.nome} {this.sobrenome} - Telefone para contato: {this.telefone} \nValor da hora de trabalho: R$ {this.valor},00 \nEspecialidade: {this.cat} \nBairro: {this.bairro} "; }
+    public override string ToString() {
+        return $"Nome: {this.Nome} {this.Sobrenome} - Tel: {this.Telefone} \nValor/h: R$ {this.Valor:F2} \nEsp.: {this.Categoria} \nBairro: {this.Bairro}";
+    }
 }
