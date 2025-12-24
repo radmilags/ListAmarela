@@ -43,6 +43,8 @@ src/
 └── Program.cs      # Interface de Usuário (Console) e Menu
 docs/               # Documentação funcional e diagramas UML
 
+```
+
 ✨ Funcionalidades
 *[x] Cadastro de Prestadores: Inclusão de profissionais com categoria e valor/hora.
 
@@ -62,32 +64,19 @@ docs/               # Documentação funcional e diagramas UML
 Pré-requisito: Ter o .NET SDK instalado.
 
 Clone o repositório:
-
-Bash
-
+```text
 git clone [https://github.com/radmilags/ListAmarela.git](https://github.com/radmilags/ListAmarela.git)
+```
+
 Entre na pasta do código fonte:
-
-Bash
-
+```text
 cd ListAmarela/src
+```
+
 Execute a aplicação:
-
-Bash
-
+```text
 dotnet run
+```
+
 📚 Documentação
 A documentação completa do projeto (Diagramas de Classe, Casos de Uso e Visão) pode ser encontrada na pasta docs/.
-
-Autor: Radmila Gama da Silva Tech Lead & Requirements Analyst em evolução constante.
-
-
-***
-
-### 📦 O Commit da Renovação
-
-Bora subir essa belezura pro GitHub e deixar o perfil profissional?
-
-```bash
-git add README.md
-git commit -m "docs: update README with professional formatting and project details"
