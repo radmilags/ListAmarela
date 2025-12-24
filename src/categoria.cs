@@ -1,11 +1,12 @@
-using System; // IComparable
+public class Categoria {
+  public int Id { get; set; }
+  public string Nome { get; set; }
 
-public class Categoria{
-  private int id;
-  private string nome;
+  public Categoria() { }
+
   public Categoria(int id, string nome) {
-    this.id = id;
-    if(nome!="") this.nome = nome;
+    this.Id = id;
+    this.Nome = nome;
   }
-  public override string ToString(){ return $"[{this.id}] {this.nome}"; }
+  public override string ToString(){ return $"[{this.Id}] {this.Nome}"; }
 }

@@ -17,26 +17,3 @@ DEMANDAS:
 - Conceitos de herança
 
 Interface: Será desenvolvida somentes quando o projeto ListAmarela for exibido no PDS, no terceiro semestre.
-
-
-```
-ListAmarela
-├─ README.md
-├─ docs
-│  └─ assets
-│     ├─ classesProfessor.PNG
-│     ├─ negocio.png
-│     ├─ site.asta
-│     ├─ usuario.png
-│     └─ visao.png
-└─ src
-   ├─ Program.cs
-   ├─ categoria.cs
-   ├─ cliente.cs
-   ├─ persistencia.cs
-   ├─ prestador.cs
-   ├─ servicos.cs
-   ├─ solicitacoes.cs
-   └─ src.csproj
-
-```
