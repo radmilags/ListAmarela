@@ -16,4 +16,3 @@ DEMANDAS:
 - ~~Ordenação~~ ~~(em parte, falta ordenar por categoria e preço)~~
 - Conceitos de herança
 
-Interface: Será desenvolvida somentes quando o projeto ListAmarela for exibido no PDS, no terceiro semestre.
