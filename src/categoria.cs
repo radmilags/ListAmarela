@@ -1,6 +1,6 @@
 using System; // IComparable
 
-class Categoria{
+public class Categoria{
   private int id;
   private string nome;
   public Categoria(int id, string nome) {
