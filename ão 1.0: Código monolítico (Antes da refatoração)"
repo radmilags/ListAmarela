@@ -1,0 +1,138 @@
+[33m76b7a76[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m fix: Program
+[33m106b721[m fix: add missing namespaces and usings to resolve compilation errors
+[33m5e162b5[m fix: readme
+[33mf8066a6[m refactor: apply namespaces to Models and update Program imports
+[33me9d5e65[m refactor: integrate ClienteService and remove direct persistence access from Main
+[33m69e5e68[m refactor: integrate ClienteService and remove direct persistence access from Main
+[33m3c13c85[m feat: implement ClienteService logic
+[33mad51c70[m fix: Program
+[33m859c1f8[m chore: move entity classes to Models folder
+[33mfa0cd7c[m chore: move entity classes to Models folder
+[33me4269b7[m refactor: update Main to use CategoriaService
+[33m909065d[m Merge branch 'main' of https://github.com/radmilags/ListAmarela
+[33m9376244[m feat: implement CategoriaService logic
+[33mde55221[m feat: implement CategoriaService logic
+[33m6f1fb44[m Update README with project details and features
+[33m7b92b16[m Refactor README for better clarity and structure
+[33m6d062d7[m fix: readme
+[33mdfd7520[m fix: readme
+[33m6878c3c[m fix: readme
+[33mc5ba569[m fix: PrestadorService
+[33m3dc2ff1[m chore: move PrestadorService to dedicated Services folder
+[33mb55f62d[m refactor: update Main to use PrestadorService and separate UI menu
+[33m6195fc1[m feat: create PrestadorService to handle business logic
+[33ma8fe9d4[m refactor: update Cliente and Categoria to use public properties
+[33mcaa15e2[m fix: update visibility for Cliente, Servico and Solicitacao classes
+[33mb08bcbb[m fix: make Categoria class public to resolve accessibility error
+[33m5511a38[m fix: src - program
+[33m2ee81f5[m chore: remove unused script file dadosC.cs
+[33m179d83c[m refactor: update Prestador class to use public properties and add update method
+[33mdf5a4cd[m feat: restore Persistencia class for XML data handling
+[33m634d7fa[m fix: readme
+[33m5c0bccb[m chore: src delete previa
+[33m0dd6094[m chore: move diagram images to docs/assets folder
+[33md30002d[m onfig: add gitignore to exclude build artifacts and temp files
+[33md4556f1[m chore: move diagram images to docs/assets folder
+[33mfc4775b[m chore: rename directories to standard convention (src, docs)
+[33mc276529[m fix: readme project tree
+[33md0795ae[m Arquivos XML com cadastros iniciais
+[33m87cc74b[m Implementando IComparable
+[33me896189[m Implementado menu com filtro por preço
+[33m83bfcf4[m Implementado IComparable
+[33m0534542[m implementado ordenação por categoria
+[33ma7a7643[m Implementado filtro por categoria na opção 2
+[33m3fee591[m readme atualizado
+[33m3359580[m Arrumando o ToString
+[33m3a22235[m Serializando categoria
+[33md25837b[m Criando serializador
+[33m6088dc7[m Update prestador.cs
+[33mc6af6f4[m Update cliente.cs
+[33m7ca6dce[m update categoria
+[33m2ba179f[m Repaginação do main
+[33m8a481f2[m Previa do trabalho, não finalizado
+[33mfbf347b[m Update main.cs
+[33mea22d39[m Update main.cs
+[33md39e9bb[m Update main.cs
+[33m549a919[m Correcoes categorias
+[33md386284[m Listas
+[33m14ecb40[m irei corrigir ainda
+[33m103e030[m Add files via upload
+[33m902ed2b[m Update main.cs
+[33m93ed087[m Update main.cs
+[33mf437472[m Update main.cs
+[33m533f46a[m Delete Codigo/update0602 directory
+[33m714740f[m Update README.md
+[33mb7dcfb5[m Update README.md
+[33m7613736[m Update README.md
+[33m155fcad[m Delete test.cs
+[33m833cfdf[m Update categoria.cs
+[33m4901fef[m Update prestador.cs
+[33m54839ee[m Ajustes no ToString e acrescentar o atributo Valor
+[33md9f199d[m Arrumando menu
+[33m9db6c17[m Ajuste no ToString
+[33m8645dc0[m update dos arquivos novos
+[33m0af90ae[m test
+[33mc4238e3[m Update main.cs
+[33m5048ab4[m Update main.cs
+[33mbc551a6[m Update main.cs
+[33mae57e64[m Create servicos.cs
+[33m263fd86[m Create solicitacoes.cs
+[33m2079f12[m Update prestador.cs
+[33m2db6d6e[m Create prestador.cs
+[33mf53c370[m Delete classes.cs
+[33md53ea77[m Delete servico.cs
+[33m4676401[m Delete negocio.cs
+[33mb9334bb[m Delete pessoa.cs
+[33m58bc0e3[m Update cliente.cs
+[33mdf4077b[m Update categoria.cs
+[33me054845[m Update main.cs
+[33m1aa1248[m Update main.cs
+[33m9e0db8f[m Update pessoa.cs
+[33mef04d56[m Create cliente.cs
+[33m126a7f3[m Update categoria.cs
+[33mea11ae8[m Update main.cs
+[33m4c7b9fe[m Create categoria.cs
+[33m574aa04[m Update main.cs
+[33m11088a4[m Update main.cs
+[33mcd932f6[m Update README.md
+[33m96454af[m Create servico.cs
+[33m92d8261[m Update classes.cs
+[33md0f2b4f[m Update pessoa.cs
+[33m0794521[m Update pessoa.cs
+[33mc074e48[m Rename Pessoa.cs to pessoa.cs
+[33m671c1e6[m Update Pessoa.cs
+[33m1f33e66[m Update Pessoa.cs
+[33m147ab1f[m Create Pessoa.cs
+[33me82b963[m Delete teste.py
+[33m6359016[m Update main.cs
+[33mc9cd88b[m Delete teste.py
+[33m4b818c1[m Criando algumas classes e menu
+[33m4086285[m Update README.md
+[33m0ee753a[m Negocio
+[33m99bd2de[m Visão
+[33me90fbdc[m Usuário
+[33m074dd89[m Update README.md
+[33mfe6ec2d[m Update README.md
+[33m3a42083[m Update README.md
+[33mbea7166[m Update README.md
+[33mbf5bd0a[m Update README.md
+[33mc0d5e0a[m Update README.md
+[33mf3bd1fd[m Alterações
+[33m4cfb608[m Update README.md
+[33mb530d4b[m Documento de visão e requisitos
+[33m90deb7b[m Versão mais recente
+[33m241a873[m Deletar para poder fazer upload de uma nova versão
+[33mbea9482[m Add files via upload
+[33me83a018[m Delete site.asta
+[33m4bb00d3[m Create teste.py
+[33m1342d9a[m Add files via upload
+[33m053c9e9[m Delete site.asta
+[33m5e96098[m Diagramas
+[33m4e27afd[m Update README.md
+[33m5554bd6[m Create teste.py
+[33m07972f9[m Create teste.py
+[33mb1cd45a[m Update README.md
+[33m5829eff[m Update README.md
+[33m69a8436[m Update README.md
+[33m6bfbcac[m Update README.md
+[33md478a7d[m Initial commit
