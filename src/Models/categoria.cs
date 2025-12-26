@@ -1,12 +1,20 @@
-public class Categoria {
-  public int Id { get; set; }
-  public string Nome { get; set; }
+using System;
 
-  public Categoria() { }
+namespace ListAmarela.Models
+{
+  public class Categoria
+  {
+    public int Id { get; set; }
+    public string Nome { get; set; }
+    
+    public Categoria() { }
 
-  public Categoria(int id, string nome) {
-    this.Id = id;
-    this.Nome = nome;
+    public Categoria(int id, string nome) 
+    {
+      this.Id = id;
+      this.Nome = nome;
+    }
+      
+    public override string ToString(){ return $"[{this.Id}] {this.Nome}"; }
   }
-  public override string ToString(){ return $"[{this.Id}] {this.Nome}"; }
 }
