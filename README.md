@@ -84,6 +84,7 @@ dotnet run
 A documentação completa do projeto (Diagramas de Classe, Casos de Uso e Visão) pode ser encontrada na pasta docs/.
 
 
+
 ```
 ListAmarela
 ├─ ListAmarela.sln
