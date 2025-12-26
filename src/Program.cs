@@ -1,28 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Xml.Serialization;
-using System.Linq;
+using ListAmarela.Services;
 
 class Program
 {
     static PrestadorService prestadorService = new PrestadorService();
+    static CategoriaService categoriaService = new CategoriaService();
+    static ClienteService clienteService = new ClienteService(); 
 
     public static void Main()
     {
         Console.WriteLine("");
-        Console.WriteLine(" ListAmarela ");
+        Console.WriteLine("=== ListAmarela ===");
         Console.WriteLine("");
-
-        List<Cliente> clientes = new List<Cliente>();
-        List<Categoria> categorias = new List<Categoria>();
-        
-    
-        Persistencia<Categoria> bancoCategorias = new Persistencia<Categoria>();
-        categorias = bancoCategorias.AbrirArquivo("./categorias.xml");
-
-        Persistencia<Cliente> bancoClientes = new Persistencia<Cliente>();
-        clientes = bancoClientes.AbrirArquivo("./clientes.xml");
 
         int op = -1;
 
@@ -41,7 +31,7 @@ class Program
                     Console.WriteLine("Saindo... Até logo!");
                     break;
 
-                case 1: 
+                case 1:
                 {
                     Console.WriteLine(" DELETAR PRESTADOR ");
                     var lista = prestadorService.Listar();
@@ -53,14 +43,14 @@ class Program
                     }
 
                     Console.Write("Escolha o número para deletar: ");
-                    int index = int.Parse(Console.ReadLine()) - 1;
-                    
-                    prestadorService.Deletar(index);
-                    Console.WriteLine("Prestador removido com sucesso!");
+                    if(int.TryParse(Console.ReadLine(), out int index)) {
+                        prestadorService.Deletar(index - 1);
+                        Console.WriteLine("Prestador removido com sucesso!");
+                    }
                     break;
                 }
 
-                case 2:
+                case 2: 
                 {
                     Console.WriteLine(" LISTA DE PRESTADORES ");
                     var lista = prestadorService.Listar();
@@ -87,13 +77,13 @@ class Program
                     Console.Write("Telefone: "); string telefone = Console.ReadLine();
                     Console.Write("Senha: "); string senha = Console.ReadLine();
 
-                    int idCliente = (clientes.Count == 0) ? 1 : clientes.Max(c => c.Id) + 1;
-
+        
+                    int idCliente = clienteService.GerarId();
                     Cliente novoCliente = new Cliente(idCliente, nome, sobrenome, cpf, email, sexo, endereco, bairro, cidade, telefone, senha);
-                    clientes.Add(novoCliente);
-                    bancoClientes.SalvarArquivo("./clientes.xml", clientes);
                     
-                    Console.WriteLine("Cliente cadastrado!");
+                    clienteService.Cadastrar(novoCliente);
+                    
+                    Console.WriteLine("\nCliente cadastrado com sucesso!");
                     break;
                 }
 
@@ -102,15 +92,21 @@ class Program
                     Console.WriteLine(" CADASTRAR PRESTADOR ");
 
                     
+                    var listaCategorias = categoriaService.Listar();
+                    
+                    if (listaCategorias.Count == 0) {
+                        Console.WriteLine("Nenhuma categoria cadastrada! Cadastre uma categoria antes.");
+                        break;
+                    }
+
                     int i = 1;
-                    foreach (var cat in categorias) {
+                    foreach (var cat in listaCategorias) {
                         Console.WriteLine($"[{i}] - {cat.Nome}");
                         i++;
                     }
                     Console.Write("Escolha a categoria: ");
                     int catIndex = int.Parse(Console.ReadLine()) - 1;
 
-                   
                     Console.Write("Nome: "); string nome = Console.ReadLine();
                     Console.Write("Sobrenome: "); string sobrenome = Console.ReadLine();
                     Console.Write("Valor/h: "); double valor = double.Parse(Console.ReadLine());
@@ -123,10 +119,8 @@ class Program
                     Console.Write("Telefone: "); string telefone = Console.ReadLine();
                     Console.Write("Senha: "); string senha = Console.ReadLine();
 
-                
                     int novoId = prestadorService.GerarId();
-
-                    Prestador novoPrestador = new Prestador(novoId, nome, sobrenome, valor, cpf, email, sexo, endereco, bairro, cidade, telefone, categorias[catIndex], senha);
+                    Prestador novoPrestador = new Prestador(novoId, nome, sobrenome, valor, cpf, email, sexo, endereco, bairro, cidade, telefone, listaCategorias[catIndex], senha);
                     
                     prestadorService.Cadastrar(novoPrestador);
 
@@ -160,6 +154,7 @@ class Program
             }
         }
     }
+
     public static void ExibirMenu()
     {
         Console.WriteLine("");
