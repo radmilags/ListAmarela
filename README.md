@@ -43,6 +43,8 @@ src/
 └── Program.cs      # Interface de Usuário (Console) e Menu
 docs/               # Documentação funcional e diagramas UML
 
+```text
+
 ✨ Funcionalidades
 *[x] Cadastro de Prestadores: Inclusão de profissionais com categoria e valor/hora.
 
