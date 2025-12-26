@@ -6,24 +6,21 @@ using System.Linq;
 
 class Program
 {
-    // Instanciando o Service globalmente para usar no Main
     static PrestadorService prestadorService = new PrestadorService();
 
     public static void Main()
     {
         Console.WriteLine("");
-        Console.WriteLine("=== ListAmarela ===");
+        Console.WriteLine(" ListAmarela ");
         Console.WriteLine("");
 
-        // Manter listas antigas por enquanto (Cliente/Categoria ainda não têm Service)
         List<Cliente> clientes = new List<Cliente>();
         List<Categoria> categorias = new List<Categoria>();
         
-        // Carregando categorias para poder usar no cadastro (Modo antigo ainda)
+    
         Persistencia<Categoria> bancoCategorias = new Persistencia<Categoria>();
         categorias = bancoCategorias.AbrirArquivo("./categorias.xml");
 
-        // Carregando clientes (Modo antigo ainda)
         Persistencia<Cliente> bancoClientes = new Persistencia<Cliente>();
         clientes = bancoClientes.AbrirArquivo("./clientes.xml");
 
@@ -31,9 +28,8 @@ class Program
 
         while (op != 0)
         {
-            ExibirMenu(); // Menu isolado para limpar o código
+            ExibirMenu(); 
 
-            // Tratamento de erro se o usuário digitar letra em vez de número
             if (!int.TryParse(Console.ReadLine(), out op)) {
                 Console.WriteLine("Opção inválida! Digite um número.");
                 continue;
@@ -45,7 +41,7 @@ class Program
                     Console.WriteLine("Saindo... Até logo!");
                     break;
 
-                case 1: // Deletar Prestador
+                case 1: 
                 {
                     Console.WriteLine(" DELETAR PRESTADOR ");
                     var lista = prestadorService.Listar();
@@ -64,7 +60,7 @@ class Program
                     break;
                 }
 
-                case 2: // Listar Prestadores
+                case 2:
                 {
                     Console.WriteLine(" LISTA DE PRESTADORES ");
                     var lista = prestadorService.Listar();
@@ -76,11 +72,9 @@ class Program
                     break;
                 }
 
-                case 3: // Cadastrar Cliente (Ainda no modo antigo - Próxima refatoração!)
+                case 3: 
                 {
                     Console.WriteLine(" CADASTRO DE CLIENTE ");
-                    // ... (Mantive sua lógica original de Cliente aqui para não quebrar tudo de vez)
-                    // Sugestão: Crie um ClienteService depois!
                     
                     Console.Write("Nome: "); string nome = Console.ReadLine();
                     Console.Write("Sobrenome: "); string sobrenome = Console.ReadLine();
@@ -103,7 +97,7 @@ class Program
                     break;
                 }
 
-                case 4: // Cadastrar Prestador (AGORA USANDO O SERVICE! 🍌)
+                case 4:
                 {
                     Console.WriteLine(" CADASTRAR PRESTADOR ");
 

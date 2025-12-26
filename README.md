@@ -83,3 +83,30 @@ dotnet run
 📚 Documentação
 A documentação completa do projeto (Diagramas de Classe, Casos de Uso e Visão) pode ser encontrada na pasta docs/.
 
+
+```
+ListAmarela
+├─ ListAmarela.sln
+├─ README.md
+├─ docs
+│  └─ assets
+│     ├─ classesProfessor.PNG
+│     ├─ negocio.png
+│     ├─ site.asta
+│     ├─ usuario.png
+│     └─ visao.png
+└─ src
+   ├─ Models
+   │  ├─ categoria.cs
+   │  ├─ cliente.cs
+   │  ├─ prestador.cs
+   │  ├─ servicos.cs
+   │  └─ solicitacoes.cs
+   ├─ Program.cs
+   ├─ Services
+   │  ├─ CategoriaService.cs
+   │  └─ PrestadorService.cs
+   ├─ persistencia.cs
+   └─ src.csproj
+
+```
