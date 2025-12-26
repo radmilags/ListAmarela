@@ -12,7 +12,7 @@ class Program
     public static void Main()
     {
         Console.WriteLine("");
-        Console.WriteLine("=== ListAmarela ===");
+        Console.WriteLine(" ListAmarela ");
         Console.WriteLine("");
 
         int op = -1;
