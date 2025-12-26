@@ -105,6 +105,7 @@ ListAmarela
    ├─ Program.cs
    ├─ Services
    │  ├─ CategoriaService.cs
+   │  ├─ ClienteService.cs
    │  └─ PrestadorService.cs
    ├─ persistencia.cs
    └─ src.csproj
