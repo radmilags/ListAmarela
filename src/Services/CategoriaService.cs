@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ListAmarela.Models;
 
 public class CategoriaService {
     private List<Categoria> categorias;
