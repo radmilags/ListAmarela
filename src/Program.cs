@@ -47,7 +47,7 @@ class Program
 
                 case 1: // Deletar Prestador
                 {
-                    Console.WriteLine("--- DELETAR PRESTADOR ---");
+                    Console.WriteLine(" DELETAR PRESTADOR ");
                     var lista = prestadorService.Listar();
                     
                     int i = 1;
@@ -66,19 +66,19 @@ class Program
 
                 case 2: // Listar Prestadores
                 {
-                    Console.WriteLine("--- LISTA DE PRESTADORES ---");
+                    Console.WriteLine(" LISTA DE PRESTADORES ");
                     var lista = prestadorService.Listar();
 
                     foreach (var p in lista) {
                         Console.WriteLine(p.ToString());
-                        Console.WriteLine("-----------------");
+                        Console.WriteLine("--");
                     }
                     break;
                 }
 
                 case 3: // Cadastrar Cliente (Ainda no modo antigo - Próxima refatoração!)
                 {
-                    Console.WriteLine("--- CADASTRO DE CLIENTE ---");
+                    Console.WriteLine(" CADASTRO DE CLIENTE ");
                     // ... (Mantive sua lógica original de Cliente aqui para não quebrar tudo de vez)
                     // Sugestão: Crie um ClienteService depois!
                     
@@ -105,9 +105,9 @@ class Program
 
                 case 4: // Cadastrar Prestador (AGORA USANDO O SERVICE! 🍌)
                 {
-                    Console.WriteLine("--- CADASTRAR PRESTADOR ---");
+                    Console.WriteLine(" CADASTRAR PRESTADOR ");
 
-                    // Seleção de Categoria
+                    
                     int i = 1;
                     foreach (var cat in categorias) {
                         Console.WriteLine($"[{i}] - {cat.Nome}");
@@ -116,7 +116,7 @@ class Program
                     Console.Write("Escolha a categoria: ");
                     int catIndex = int.Parse(Console.ReadLine()) - 1;
 
-                    // Dados do Prestador
+                   
                     Console.Write("Nome: "); string nome = Console.ReadLine();
                     Console.Write("Sobrenome: "); string sobrenome = Console.ReadLine();
                     Console.Write("Valor/h: "); double valor = double.Parse(Console.ReadLine());
@@ -129,32 +129,32 @@ class Program
                     Console.Write("Telefone: "); string telefone = Console.ReadLine();
                     Console.Write("Senha: "); string senha = Console.ReadLine();
 
-                    // O Service gera o ID automaticamente
+                
                     int novoId = prestadorService.GerarId();
 
                     Prestador novoPrestador = new Prestador(novoId, nome, sobrenome, valor, cpf, email, sexo, endereco, bairro, cidade, telefone, categorias[catIndex], senha);
                     
-                    // O Service salva automaticamente
                     prestadorService.Cadastrar(novoPrestador);
 
                     Console.WriteLine("\nPrestador cadastrado com sucesso!");
                     break;
                 }
 
-                case 5: // Cadastrar Categoria (Modo antigo)
+                case 5: 
                 {
-                    Console.WriteLine("--- CADASTRAR CATEGORIA ---");
+                    Console.WriteLine(" CADASTRAR CATEGORIA ");
                     Console.Write("Nome: ");
                     string nome = Console.ReadLine();
-                    int idCat = (categorias.Count == 0) ? 1 : categorias.Max(c => c.Id) + 1;
                     
-                    categorias.Add(new Categoria(idCat, nome));
-                    bancoCategorias.SalvarArquivo("./categorias.xml", categorias);
-                    Console.WriteLine("Categoria salva!");
+                    int novoId = categoriaService.GerarId();
+                    Categoria novaCat = new Categoria(novoId, nome);
+                    
+                    categoriaService.Cadastrar(novaCat);
+                    Console.WriteLine("Categoria cadastrada com sucesso!");
                     break;
                 }
 
-                case 7: // Atualizar (Simplified placeholder)
+                case 6: 
                 {
                      Console.WriteLine("Funcionalidade em manutenção para migração de arquitetura.");
                      break;
@@ -176,7 +176,7 @@ class Program
         Console.WriteLine("[3] Cadastrar Cliente");
         Console.WriteLine("[4] Cadastrar Prestador");
         Console.WriteLine("[5] Cadastrar Categoria");
-        Console.WriteLine("[7] Atualizar Prestador");
+        Console.WriteLine("[6] Atualizar Prestador");
         Console.WriteLine("");
         Console.Write("Opção: ");
     }
